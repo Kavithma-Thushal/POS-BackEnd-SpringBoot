@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 /**
  * @author : Kavithma Thushal
  * @project : SpringBoot-POS
@@ -22,39 +24,39 @@ public class ItemController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public ResponseUtil saveItem(@ModelAttribute ItemDTO dto) {
+    public ResponseUtil saveItem(@Valid @RequestBody ItemDTO dto) {
         service.saveItem(dto);
-        return new ResponseUtil("OK", "Successfully Registered.!", null);
+        return new ResponseUtil("200 OK", "saved successfully...!", null);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PutMapping
-    public ResponseUtil updateItem(@RequestBody ItemDTO dto) {
-        service.updateItem(dto);
-        return new ResponseUtil("OK", "Successfully Updated. :" + dto.getCode(), null);
-    }
-
-    @ResponseStatus(HttpStatus.CREATED)
-    @DeleteMapping
-    public ResponseUtil deleteItem(@RequestBody ItemDTO dto) {
-        service.deleteItem(dto);
-        return new ResponseUtil("OK", "Successfully Deleted. :" + dto.getCode(), null);
-    }
-
-    @ResponseStatus(HttpStatus.CREATED)
-    @GetMapping(path = "/searchItemCode", params = {"code"})
-    public ItemDTO searchItemCode(String code) {
+    @GetMapping("/searchItem/{code}")
+    public ItemDTO searchItem(@PathVariable("code") String code) {
         return service.searchItemCode(code);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @GetMapping(path = "/loadAllItem")
-    public ResponseUtil loadAllItem() {
-        return new ResponseUtil("OK", "Successfully Loaded. :", service.loadAllItem());
+    @PutMapping
+    public ResponseUtil updateItem(@Valid @RequestBody ItemDTO dto) {
+        service.updateItem(dto);
+        return new ResponseUtil("200 OK", "updated successfully...!", null);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @GetMapping(path = "/ItemIdGenerate")
+    @DeleteMapping("/{code}")
+    public ResponseUtil deleteItem(@PathVariable("code") String code) {
+        service.deleteItem(code);
+        return new ResponseUtil("200 OK", "deleted successfully...!", null);
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/loadAllItems")
+    public ResponseUtil loadAllItem() {
+        return new ResponseUtil("200 OK", "loaded successfully...! : ", service.loadAllItem());
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/generateItemCode")
     public @ResponseBody CustomDTO ItemIdGenerate() {
         return service.itemIdGenerate();
     }

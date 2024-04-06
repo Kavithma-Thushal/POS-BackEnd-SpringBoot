@@ -13,15 +13,16 @@ import java.util.ArrayList;
  * @project : SpringBoot-POS
  **/
 public interface PlaceOrderService {
-    void placeOrder(@RequestBody OrdersDTO dto);
-
-    ArrayList<OrdersDTO> LoadOrders();
-
-    ArrayList<OrderDetailsDTO> LoadOrderDetails();
 
     @ResponseBody
     CustomDTO OrderIdGenerate();
 
+    void placeOrder(@RequestBody OrdersDTO dto);
+
     @ResponseBody
     CustomDTO getSumOrders();
+
+    ArrayList<OrdersDTO> LoadOrders();
+
+    ArrayList<OrderDetailsDTO> LoadOrderDetails();
 }

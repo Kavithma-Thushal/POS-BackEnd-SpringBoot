@@ -21,34 +21,33 @@ public class PlaceOrderController {
     private PlaceOrderService service;
 
     @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/generateOrderId")
+    public @ResponseBody CustomDTO OrderIdGenerate() {
+        return service.OrderIdGenerate();
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public ResponseUtil placeOrder(@RequestBody OrdersDTO dto) {
         service.placeOrder(dto);
-        return new ResponseUtil("Ok", "Successfully Purchased.!", null);
-    }
-
-    @ResponseStatus(HttpStatus.CREATED)
-    @GetMapping(path = "/LoadOrders")
-    public ResponseUtil LoadOrders() {
-        return new ResponseUtil("OK", "Successfully Loaded. :", service.LoadOrders());
-    }
-
-
-    @ResponseStatus(HttpStatus.CREATED)
-    @GetMapping(path = "/LoadOrderDetails")
-    public ResponseUtil LoadOrderDetails() {
-        return new ResponseUtil("OK", "Successfully Loaded. :", service.LoadOrderDetails());
-    }
-
-    @ResponseStatus(HttpStatus.CREATED)
-    @GetMapping(path = "/OrderIdGenerate")
-    public @ResponseBody CustomDTO OrderIdGenerate() {
-        return service.OrderIdGenerate();
+        return new ResponseUtil("200 OK", "purchased successfully...!", null);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/ordersCount")
     public @ResponseBody CustomDTO getSumOrders() {
         return service.getSumOrders();
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/loadOrders")
+    public ResponseUtil LoadOrders() {
+        return new ResponseUtil("200 OK", "loaded successfully...! : ", service.LoadOrders());
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/loadOrderDetails")
+    public ResponseUtil LoadOrderDetails() {
+        return new ResponseUtil("200 OK", "loaded successfully...! : ", service.LoadOrderDetails());
     }
 }

@@ -3,6 +3,7 @@ package lk.ijse.spring.service;
 import lk.ijse.spring.dto.CustomDTO;
 import lk.ijse.spring.dto.CustomerDTO;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -13,13 +14,14 @@ import java.util.ArrayList;
  * @project : SpringBoot-POS
  **/
 public interface CustomerService {
-    void saveCustomer(@ModelAttribute CustomerDTO dto);
+
+    void saveCustomer(@RequestBody CustomerDTO dto);
+
+    CustomerDTO searchCusId(String id);
 
     void updateCustomer(@RequestBody CustomerDTO dto);
 
-    void deleteCustomer(@RequestBody CustomerDTO dto);
-
-    CustomerDTO searchCusId(String id);
+    void deleteCustomer(@PathVariable("id") String id);
 
     ArrayList<CustomerDTO> loadAllCustomer();
 

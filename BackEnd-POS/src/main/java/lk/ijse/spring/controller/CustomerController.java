@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 /**
  * @author : Kavithma Thushal
  * @project : SpringBoot-POS
@@ -22,45 +24,45 @@ public class CustomerController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public ResponseUtil saveCustomer(@ModelAttribute CustomerDTO dto) {
+    public ResponseUtil saveCustomer(@Valid @RequestBody CustomerDTO dto) {
         service.saveCustomer(dto);
-        return new ResponseUtil("OK", "Successfully Registered.!", null);
+        return new ResponseUtil("200 OK", "saved successfully...!", null);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PutMapping
-    public ResponseUtil updateCustomer(@RequestBody CustomerDTO dto) {
-        service.updateCustomer(dto);
-        return new ResponseUtil("OK", "Successfully Updated. :" + dto.getId(), null);
-    }
-
-    @ResponseStatus(HttpStatus.CREATED)
-    @DeleteMapping
-    public ResponseUtil deleteCustomer(@RequestBody CustomerDTO dto) {
-        service.deleteCustomer(dto);
-        return new ResponseUtil("OK", "Successfully Deleted. :" + dto.getId(), null);
-    }
-
-    @ResponseStatus(HttpStatus.CREATED)
-    @GetMapping(path = "/searchCusId", params = {"id"})
-    public CustomerDTO searchCusId(String id) {
+    @GetMapping("/searchCustomer/{id}")
+    public CustomerDTO searchCustomer(@PathVariable("id") String id) {
         return service.searchCusId(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @GetMapping(path = "/loadAllCustomer")
-    public ResponseUtil loadAllCustomer() {
-        return new ResponseUtil("OK", "Successfully Loaded. :", service.loadAllCustomer());
+    @PutMapping
+    public ResponseUtil updateCustomer(@Valid @RequestBody CustomerDTO dto) {
+        service.updateCustomer(dto);
+        return new ResponseUtil("200 OK", "updated successfully...!", null);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @GetMapping(path = "/CustomerIdGenerate")
+    @DeleteMapping("/{id}")
+    public ResponseUtil deleteCustomer(@PathVariable("id") String id) {
+        service.deleteCustomer(id);
+        return new ResponseUtil("200 OK", "deleted successfully...!", null);
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/loadAllCustomers")
+    public ResponseUtil loadAllCustomer() {
+        return new ResponseUtil("200 OK", "loaded successfully...! : ", service.loadAllCustomer());
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/generateCustomerId")
     public @ResponseBody CustomDTO customerIdGenerate() {
         return service.customerIdGenerate();
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @GetMapping(path = "/CustomerCount")
+    @GetMapping(path = "/customerCount")
     public @ResponseBody CustomDTO getSumCustomer() {
         return service.getSumCustomer();
     }
