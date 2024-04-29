@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c03651b7-e5d9-4645-85c3-3f13e099db5d" name="Changes" comment="DB Added">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2937f250-1a2d-4ce9-8fe6-a97a2a9d2a65.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2937f250-1a2d-4ce9-8fe6-a97a2a9d2a65.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/face88a4-8d1e-48b4-9fdf-1f7da94412c0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/face88a4-8d1e-48b4-9fdf-1f7da94412c0/storage_v2/_src_/schema/springboot_pos.lPj0ZQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c03651b7-e5d9-4645-85c3-3f13e099db5d" name="Changes" comment="README.md Updated" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,6 +101,7 @@
       <workItem from="1713934725781" duration="6000" />
       <workItem from="1714226025208" duration="1689000" />
       <workItem from="1714357102733" duration="6630000" />
+      <workItem from="1714366059061" duration="119000" />
     </task>
     <task id="LOCAL-00001" summary="POS-BackEnd-SpringBoot Refactored">
       <option name="closed" value="true" />
@@ -124,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712387794198</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="README.md Updated">
+      <option name="closed" value="true" />
+      <created>1714366164804</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714366164804</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +136,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="POS-BackEnd-SpringBoot Refactored" />
     <MESSAGE value="DB Added" />
-    <option name="LAST_COMMIT_MESSAGE" value="DB Added" />
+    <MESSAGE value="README.md Updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="README.md Updated" />
   </component>
 </project>

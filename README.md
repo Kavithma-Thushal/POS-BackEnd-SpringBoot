@@ -21,7 +21,7 @@ and configuration of the application, expediting both development and deployment
 ### Technology Stack
 
 ✅Java 8<br/>
-✅Spring<br/>
+✅Spring Boot<br/>
 ✅MySQL<br/>
 ✅Hibernate<br/>
 ✅Maven<br/>
